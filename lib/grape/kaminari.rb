@@ -47,12 +47,10 @@ module Grape
             end
           end
         end
-
-        # Alias for backward compatibility with existing codebases
-        class << self
-          alias_method :pagination_params, :paginate
-        end
       end
+
+      # Alias for backward compatibility with existing codebases
+      base.singleton_class.send(:alias_method, :pagination_params, :paginate)
     end
   end
 end
